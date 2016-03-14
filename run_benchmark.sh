@@ -1,6 +1,6 @@
 #!/bin/bash
 duration="15m"
-duration="1m" # For debugging
+#duration="1m" # For debugging
 queries=(1 2 3 6 9 10 11)
 engines=(querystreamer cqels csparql)
 duplicates=(1 20 50)
@@ -39,7 +39,7 @@ for i in ${queries[@]}; do
                                     | sed "s/TODO:type/$annotation/" \
                                     | sed "s/TODO:interval/$interval/" \
                                     | sed "s/TODO:caching/$caching/" \
-                                    | sed "s/debug = false/debug = true/" \
+                                    | sed "s/debug = false/debug = false/" \
                                     > querystreamer.properties
                                 runjar
                             done
