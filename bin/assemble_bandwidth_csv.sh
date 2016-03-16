@@ -6,7 +6,7 @@ for file in "$@"; do
     let i++
 done
 
-paste -d, .tmp_*.csv
+paste -d, .tmp_*.csv | awk '{printf("%s,%s\n", (NR-1)*1, $0)}' | sed "s/,,/,0,/g"
 
 rm .tmp_*.csv
 
