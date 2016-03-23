@@ -3,7 +3,8 @@ duration="15m"
 #duration="1m" # For debugging
 queries=(1 2 3 6 9 10 11)
 engines=(querystreamer cqels csparql)
-duplicates=(1 20 50)
+#duplicates=(1 20 50)
+duplicates=(5 10 15)
 frequencies=(0.1 0.5)
 
 #annotations=(reification singletonproperties graphs implicitgraphs)
