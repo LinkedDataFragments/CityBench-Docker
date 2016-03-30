@@ -4,7 +4,7 @@ FROM onsdigital/java-node-component
 ENV rundir /home/citybench
 
 # Install git
-RUN apt-get update && apt-get install -y git make gawk bc
+RUN apt-get update && apt-get install -y git make gawk bc sshpass
 
 # Download files
 WORKDIR ${rundir}
@@ -18,6 +18,9 @@ RUN cd TPFStreamingQueryExecutor && npm install --ignore-scripts
 # Add benchmark script
 ADD run_benchmark.sh .
 RUN mkdir -p CityBench/CQELS_DB
+
+# Expose LDF server via proxy
+EXPOSE 3001
 
 # Expose volume
 VOLUME ["/home/citybench/CityBench/result_log/"]

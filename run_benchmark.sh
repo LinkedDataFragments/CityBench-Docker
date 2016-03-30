@@ -1,11 +1,22 @@
 #!/bin/bash
 duration="15m"
 #duration="1m" # For debugging
-queries=(1 2 3 6 9 10 11)
-engines=(querystreamer cqels csparql)
-#duplicates=(1 20 50)
-duplicates=(5 10 15)
+queries=(1 2 3 6 9 11)
+#engines=(querystreamer cqels csparql)
+engines=(querystreamer)
+duplicates=(64) # 1 16 32 64
 frequencies=(0.1 0.5)
+#clientpool="c0 c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 c11 c12"
+clientpool="c0 c1 c2 c3 c4 c5 c6 c7"
+debug="false"
+
+# for debugging
+#debug="true"
+#duration="5m"
+#queries=(1)
+#duplicates=(8)
+#frequencies=(0.1)
+#clientpool="c0"
 
 #annotations=(reification singletonproperties graphs implicitgraphs)
 #intervals=(true false)
@@ -40,7 +51,8 @@ for i in ${queries[@]}; do
                                     | sed "s/TODO:type/$annotation/" \
                                     | sed "s/TODO:interval/$interval/" \
                                     | sed "s/TODO:caching/$caching/" \
-                                    | sed "s/debug = false/debug = false/" \
+                                    | sed "s/TODO:client-pool/$clientpool/" \
+                                    | sed "s/debug = false/debug = $debug/" \
                                     > querystreamer.properties
                                 runjar
                             done
