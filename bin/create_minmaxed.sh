@@ -4,7 +4,7 @@ re='^[0-9]+'
 
 dir=$1
 for f in 0.1 0.5; do
-    for d in 1 20 50; do
+    for d in 1 16 32 64; do
         for e in cqels csparql "querystreamer_type=graphs;interval=false;caching=false"; do
             unset min
             unset max
