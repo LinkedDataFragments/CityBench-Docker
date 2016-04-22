@@ -35,7 +35,7 @@ good_csparql <- eq_csparql || (factor * diff_csparql) < 0
 #paste("diff_csparql:", diff_csparql)
 
 # CSV-ize output
-cat(sprintf(fmt="%s,%.4f,%.2f,%s,%s,%.4f,%.2f,%s\n",eq_cqels,1-p_eq_cqels,diff_cqels,good_cqels,eq_csparql,1-p_eq_csparql,diff_csparql,good_csparql))
+cat(sprintf(fmt="%s,%.4f,%.2f,%s,%s,%.4f,%.2f,%s\n",eq_cqels,1-p_eq_cqels,diff_cqels,good_cqels,eq_csparql,1-p_eq_csparql,diff_csparql,good_csparql,big.mark=" "))
 #cat(paste(eq_cqels, ",", 1-p_eq_cqels, ",", diff_cqels, ",", eq_csparql, ",", 1-p_eq_csparql, ",", diff_csparql, "\n", sep=""))
 
 #t[[1]][["p adj"]]
