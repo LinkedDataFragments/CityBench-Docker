@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y git make gawk bc sshpass
 
 # Download files
 WORKDIR ${rundir}
-RUN git clone https://github.com/rubensworks/Benchmark.git CityBench
-RUN git clone https://github.com/rubensworks/TPFStreamingQueryExecutor.git
+RUN git clone https://github.com/LinkedDataFragments/CityBench.git CityBench
+RUN git clone https://github.com/LinkedDataFragments/QueryStreamer.js.git
 
 # Prepare files
 RUN cd CityBench && ./gradlew fatJar
